@@ -1,0 +1,105 @@
+#notification_card{
+    height:40px;
+    width:250px;
+    border: none;
+    background-color: inherit;
+    margin-bottom: 5px;
+    font-size: 12px;
+    float: right;
+    text-align: center;
+
+}
+.small_notification_card{
+    height:30px;
+    width:200px;
+    border: none;
+    background-color: inherit;
+    margin-bottom: 5px;
+    font-size: 9px;
+    float: right;
+    text-align: center;
+   
+}
+
+/* PROFILE */
+#profile_row{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#search_row{
+    margin-left: auto;
+    margin-right: auto;
+}
+#profile_card{
+    text-align: center;
+    margin-bottom: 20px;
+}
+#employee_card{
+    text-align: center;
+    margin-bottom: 20px;
+}
+#profile_img{
+    width:100px;
+    height:100px;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#employee_heading{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+/* PROFILE */
+
+
+#small_emphasy{
+    color:red;
+    font-size: 13px;
+
+}
+#success_emphasy{
+    color:green;
+    font-size: 13px;
+
+}
+.input_error{
+    color:red;
+    font-size: 9px;
+    text-align: center;
+    display: none;
+}
+
+#action_selector{
+    font-size: 12px;
+}
+
+#resume_viewer, #license_viewer{
+    height:400px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+#client_details{
+    font-size: 11px;
+}
+#next_button{
+    float:right;
+}
+#table_alert{
+    text-align: center;
+    font-size: 11px;
+    color:red;
+    background-color: #f2f2f2;
+}
+
+#nutrients_table{
+    width:350px;
+    margin-left:auto;
+    margin-right:auto;
+}

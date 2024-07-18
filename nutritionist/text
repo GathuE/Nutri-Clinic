@@ -1,0 +1,452 @@
+<div class="row mt-0">
+        <div class="col-md-8">
+        
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="notification_card">
+                <?php if (isset($msg)) {?>
+                        <div class="alert alert-success">
+                            <?php echo $msg; ?>
+                        </div>
+                <?php } ?>
+                <?php if (isset($error)) {?>
+                        <div class="alert alert-danger">
+                            <?php echo $error; ?>
+                        </div>
+                <?php } ?>
+            </div>
+        </div>
+</div>
+
+<?php 
+
+if(!$query){
+        $error = 'Meal Not Saved!!';
+        echo $error;
+    }
+    else{
+        $msg = 'Meal Saved';
+        echo $msg;
+    }
+
+?>
+
+
+<script type="text/javascript">
+
+    $('#newreportBTN').click(function(e) {
+
+        var data = $("#your_form_id_here").serialize();
+
+        $.post({
+            url: "report_new.php",        
+            data: data,
+            success: function (html) {              
+                // handle result             
+            }       
+        });
+
+        //cancel the submit button default behaviours
+        e.preventDefault();
+    });
+
+</script>
+
+
+
+
+
+<table class="table table-striped mt-3" id="nutrients_table">
+    <span id="success_emphasy">Nutrient Estimates</span>
+    <thead>
+        <tr> 
+            <td>Energy <small id="success_emphasy">(Kcals)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Protein <small id="success_emphasy">(g)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Fat <small id="success_emphasy">(g)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Carbohydrate <small id="success_emphasy">(g)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Water <small id="success_emphasy">(ml)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Fiber <small id="success_emphasy">(g)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Calcium <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Iron <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Magnesium <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Phosphorous <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Potassium <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Sodium <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Zinc <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Selenium <small id="success_emphasy">(mcg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Vit_A_RAE <small id="success_emphasy">(mcg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Vit_A_RE <small id="success_emphasy">(mcg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Retinol <small id="success_emphasy">(mcg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>B_Carotene <small id="success_emphasy">(mcg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Thiamin <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Riboflavin <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Niacin <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Dietary Folate <small id="success_emphasy">(mcg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Food Folate <small id="success_emphasy">(mcg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Vit_B12 <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Vit_C <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Cholesterol <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Oxalic Acid <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+        <tr>
+            <td>Phytate <small id="success_emphasy">(mg)</small></td>
+            <td><span id =""></span></td>
+        </tr>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    function special_conditions_iom() {
+    //code
+
+    var gender = document.getElementById("iom_gender").value;
+    if(gender == 'Female'){
+        document.getElementById("gender_combo_iom").style.display = "block";
+    }
+    else{
+        document.getElementById("gender_combo_iom").style.display = "none";
+    }
+    return true;
+    }
+</script>
+
+
+
+<?php 
+        error_reporting(E_ALL & E_NOTICE);
+        include 'includes/db_conn.php';
+        $id=$_GET['view'];
+        $sql = "SELECT * from walkin_ WHERE client_ref='$id'";
+        $query = $conn->prepare($sql);
+        $query->execute();
+        $results=$query->fetchAll(PDO::FETCH_OBJ);
+        $cnt=1;
+        if($query->rowCount() > 0)
+        {
+        foreach($results as $result1)
+        {				
+?>
+
+
+<?php }} 
+    else{
+        echo '<p id="table_alert">Client Data Not Found !!</p>';
+        } 
+?>
+
+
+ <!-- Spell checker Included Here -->
+ <?php 
+        require "phpspellcheck/include.php";
+
+        $mySpell = new SpellCheckButton();
+        $mySpell->InstallationPath = "/phpspellcheck/";
+        $mySpell->Fields = "TEXTAREAS";
+        echo $mySpell->SpellImageButton();
+
+
+        $mySpell = new SpellAsYouType();
+        $mySpell->InstallationPath = "/phpspellcheck/";
+        $mySpell->Fields = "TEXTAREAS";
+        echo $mySpell->Activate();
+
+    ?>
+    
+
+
+
+
+    page creation 
+    
+<code>
+        <?php
+            session_start();
+            error_reporting(0);
+            if (!isset($_SESSION['logged_in'])) {
+            header("Location:../index");
+            exit();
+            }
+            else 
+                {
+                    $title = "Firm Name || Intervention ";
+                    $page_title = "Intervention";
+
+
+                    $id = $_SESSION['ID'];
+                    $username = $_SESSION['username'];
+                    $role = $_SESSION['role'];
+                    $profile_pic = $_SESSION['profile_pic'];
+                    $phonenumber = $_SESSION['phonenumber'];
+                    $email = $_SESSION['email'];
+                
+            ?>
+            <!-- Header Included Here -->
+            <?php include 'includes/header.php' ?>
+
+                <div class="wrapper">
+
+                    <!-- Top Nav Included Here -->
+                    <?php include 'includes/top_nav.php' ?>
+
+                    <!-- Sidebar Included Here -->
+                    <?php include 'includes/sidebar_nav.php' ?>
+
+                    <div class="main-panel">
+                            <div class="content">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h4 class="page-title"><?php echo $page_title ?></h4>
+                                            </div>
+                                            <div class="col">
+                                                <?php include 'includes/errors.php'; ?>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <!-- Place Info Cards Here -->
+                                    
+                                        <!-- Place Other Contents Here -->
+
+                                        <!-- Place Other Contents Here -->
+
+                                        <?php 
+                                                error_reporting(E_ALL & E_NOTICE);
+                                                include 'includes/db_conn.php'; 
+                                                $id=$_GET['view'];
+                                                $sql = "SELECT * FROM walkin_clients WHERE ID='$id'";
+                                                $query= $conn->prepare($sql);
+                                                $query-> execute();
+                                                $results = $query -> fetchAll(PDO::FETCH_OBJ);
+                                                if($query -> rowCount() > 0)
+                                                {
+                                                foreach($results as $result)
+                                                {
+                                        ?>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                            <div class="card-title">Stage Five : Nutrition Intervention <br>
+                                                            <a href="clients" class="btn btn-warning btn-xs">View All Clients</a>
+                                                                <div class="card-title-right">
+                                                                    <span>
+                                                                        <p id="client_details"> 
+                                                                            Client Name : <?php echo htmlentities($result->clientname);?><br>
+                                                                            Phone Number : <?php echo htmlentities($result->phonenumber);?><br>
+                                                                        </p> 
+                                                                    </span>
+
+                                                                    <!-- Directive Buttons -->
+
+                                                                    <div id="next_button">
+                                                                        <a class="btn btn-warning btn-xs" href="client_dri?view=<?php echo htmlentities($result->ID);?>">Back</a>
+                                                                        <a class="btn btn-success btn-xs" href="#?view=<?php echo htmlentities($result->ID);?>">Proceed</a>
+                                                                    </div>
+
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+
+                                                
+                                            </div>
+                                        </div>
+
+                                        <?php }} 
+                                                else{
+                                                    echo '<p>No Data Found !!</p>';
+                                                    } 
+                                        ?>
+
+                                        
+                                    </div>
+
+
+                            </div>
+                        <!-- Guide Footer Included Here -->
+                        <?php include 'includes/guide_footer.php' ?>
+                    </div>
+                </div>
+
+                <!-- License Modal Included Here -->
+                <?php include 'includes/license_modal.php' ?>	
+
+                <!-- Footer Included Here -->
+                <?php include 'includes/footer.php' ?>	
+                
+            <?php }
+            ?>
+    </code>
+
+
+
+
+    <!-- Save Diagnosis -->
+
+<!-- Save Prescription -->
+<script type="text/javascript">
+            $(document).ready(function () {
+            $('#save_prescription').click(function (e) {
+            e.preventDefault();
+
+            var client_refno = $('#client_refno').val();
+            var prescription_one = $('#prescription_one').val();
+            var prescription_two = $('#prescription_two').val();
+            var prescription_three = $('#prescription_three').val();
+            var prescription_four = $('#prescription_four').val();
+            var prescription_five = $('#prescription_five').val();
+            var prescription_six = $('#prescription_six').val();
+           
+            
+            if(prescription_one.length == 0 || prescription_two.length == 0 || prescription_three.length == 0 || prescription_four.length == 0 || prescription_five.length == 0 || prescription_six.length == 0){
+                swal({
+                        //title: "Title",
+                        text: "Provide Atleast One Prescription!",
+                        icon: "warning",
+                        width: '200px',
+                        timer: 1500
+                        });
+                return false;
+
+            }
+            else{
+                $.ajax
+                ({
+                type: "POST",
+                url: "prescription_submit.php",
+                data: { "client_refno": client_refno,"prescription_one": prescription_one, "prescription_two": prescription_two, "prescription_three": prescription_three, "prescription_four": prescription_four, "prescription_five": prescription_five, "prescription_six": prescription_six },
+                cache: false,
+                success: function (dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+
+                    if(dataResult.statusCode==200){
+                        $('#client_refno').val('');
+                        $('#prescription_one').val('');
+                        $('#prescription_two').val('');
+                        $('#prescription_three').val('');
+                        $('#prescription_four').val('');
+                        $('#prescription_five').val('');
+                        $('#prescription_six').val('');
+
+                        swal({
+                        text: "Prescription Saved!!",
+                        icon: "success",
+                        width: '200px',
+                        timer: 1500
+                        });
+                    }
+                    else if(dataResult.statusCode==201){
+                        $('#client_refno').val('');
+                        $('#prescription_one').val('');
+                        $('#prescription_two').val('');
+                        $('#prescription_three').val('');
+                        $('#prescription_four').val('');
+                        $('#prescription_five').val('');
+                        $('#prescription_six').val('');
+
+                        swal({
+                        text: "Similar Prescription Already Exists!!",
+                        icon: "warning",
+                        width: '200px',
+                        timer: 1500
+                        });
+
+                    }
+                    
+                }
+                });
+            }
+            
+            });
+        });
+    </script>
+
+<!-- Save Prescription -->
+
+
+<!-- Save Diagnosis -->
